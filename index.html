@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System (SMS) - Phase 1 Demo</title>
+    
+    <!-- Link External CSS -->
+    <!-- Ensure this file exists at: src/styles/style.css -->
+    <link rel="stylesheet" href="srs/style/style.css">
+    
+    <!-- Adjusting text alignment for English (LTR) -->
+    <style>
+        body { text-align: left; direction: ltr; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Project Title -->
+        <h1>Student Management System (SMS) - Admin Dashboard</h1>
+       
+        
+        <!-- Section 1: Student List -->
+        <h2>Enrolled Students List</h2>
+        
+        <!-- This container is empty, JavaScript will load data here -->
+        <div id="data-container" class="data-list">
+            <!-- Students will be loaded here automatically -->
+        </div>
+
+        <hr style="margin: 30px 0;">
+        
+        <!-- Section 2: Action Simulation -->
+        <h2>Simulate Adding New Student</h2>
+        <p>Click the button to simulate the add operation performed by the Admin.</p>
+        
+        <!-- This button calls a function in JS named addStudentAction -->
+        <button onclick="addStudentAction()">Add New Student</button>
+        
+        <!-- Success message display area -->
+        <p id="action-result-display" style="margin-top: 15px; font-weight: bold;"></p>
+    </div>
+
+    <!-- Link Logic File (JavaScript) -->
+    <!-- Ensure this file exists at: src/app.js -->
+    <script src="src/app.js"></script>
+</body>
+</html>
