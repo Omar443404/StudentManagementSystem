@@ -1,0 +1,23 @@
+[
+  {
+    "ID": 1,
+    "Title": "Contract.pdf",
+    "Regulation": "GDPR",
+    "Status": "Classified as: Compliance",
+    "ClassificationResult": "Compliance ✅"
+  },
+  {
+    "ID": 2,
+    "Title": "Report.docx",
+    "Regulation": "ISO",
+    "Status": "Classified as: Technical",
+    "ClassificationResult": "Technical ✅"
+  },
+  {
+    "ID": 3,
+    "Title": "Environmental_Policy.pdf",
+    "Regulation": "Environmental",
+    "Status": "Unclassified",
+    "ClassificationResult": "Not Classified"
+  }
+]
