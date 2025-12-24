@@ -6,20 +6,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 1. الربط مع الداتابيز (MySQL Connection)
+// 1. الربط مع الداتابيز الأونلاين (Railway MySQL Connection)
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'shortline.proxy.rlwy.net', // العنوان الأونلاين الجديد
     user: 'root',
-    password: 'root', 
-    database: 'StudentManagementSystem' 
+    password: 'rNoilgVpKcCGLskICIWNlzobSBiEHrjH', // الباسورد اللي مبعوتة في الـ URL
+    database: 'railway', // اسم الداتابيز الافتراضي في Railway
+    port: 51987 // البورت المخصص للربط الخارجي
 });
 
 db.connect(err => {
     if (err) {
-        console.error('❌ Database connection failed: ' + err.stack);
+        console.error('❌ Cloud Database connection failed: ' + err.stack);
         return;
     }
-    console.log('✅ Connected to MySQL Server! (root is active)');
+    console.log('✅ Connected to Railway MySQL Cloud! 🚀');
 });
 
 // 2. API لجلب كل الطلاب (Read)
@@ -58,7 +59,6 @@ app.put('/api/students/:id', (req, res) => {
     const { id } = req.params;
     const { name, email, academic_year, status } = req.body;
     
-    // تأكدنا إن كل الخانات بتتحدث بناءً على الفورم الجديدة
     const sql = "UPDATE Students SET name = ?, email = ?, academic_year = ?, status = ? WHERE id = ?";
     
     db.query(sql, [name, email, academic_year, status, id], (err, result) => {
@@ -68,6 +68,6 @@ app.put('/api/students/:id', (req, res) => {
     });
 });
 
-// تشغيل السيرفر
-const PORT = 3000;
-app.listen(PORT, () => console.log(`🚀 Back-end server running on http://localhost:${PORT}`));
+// تشغيل السيرفر على بورت Railway أو بورت 3000 محلياً
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => console.log(`🚀 Server is running on port ${PORT}`));
