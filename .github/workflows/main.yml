@@ -1,13 +1,21 @@
 name: Project CI/CD Pipeline
+<<<<<<< HEAD
 
+=======
+>>>>>>> ab75c8f5ba5d64abe7d86f4a4042284461d7d5ae
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+<<<<<<< HEAD
 
 jobs:
   build-and-test:
+=======
+jobs:
+  build:
+>>>>>>> ab75c8f5ba5d64abe7d86f4a4042284461d7d5ae
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,5 +23,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+<<<<<<< HEAD
       - name: Install dependencies
         run: npm install
+=======
+      - run: npm install
+>>>>>>> ab75c8f5ba5d64abe7d86f4a4042284461d7d5ae
