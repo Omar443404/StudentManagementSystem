@@ -3,38 +3,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Student Management System (SMS) - Phase 1 Demo</title>
-
+    <title>Student Management System (SMS) - Admin Dashboard</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
- 
     <link rel="stylesheet" href="srs/style/style.css">
 </head>
 <body>
-
     <div class="dashboard">
- 
         <h1>Student Management System (SMS) - Admin Dashboard</h1>
-        <p>Practical demonstration of basic student data (Mock Data) for Phase 1 discussion.</p>
+        <p>Under supervision of Dr: wael AbdElrahman Ismail & Eng.HossamEldin Mostafa </p>
+        <p>Secure Student Management System - Session 2025/2026</p>
         
-     
-        <h2>Enrolled Students List</h2>
-        <div id="data-container" class="data-list"></div>
+        <div class="actions-header">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search by Student ID or Name...">
+            </div>
+            <button id="open-modal-btn" class="primary-btn">+ Add New Student</button>
+        </div>
 
-        <hr>
-        
-       
-        <h2>Simulate Adding New Student</h2>
-        <p>Click the button to simulate the add operation performed by the Admin.</p>
-        
-        <button id="add-btn">Add New Student</button>
-        
-  
+        <h2>Enrolled Students List</h2>
+        <div id="data-container" class="data-list">
+            </div>
+
         <div id="action-result-display"></div>
     </div>
 
- 
+    <div id="student-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modal-title">Add New Student</h3>
+            <form id="student-form">
+                <input type="text" id="stu-id" placeholder="Student ID (e.g., 221001)" required>
+                <input type="text" id="stu-name" placeholder="Full Name" required>
+                <input type="email" id="stu-email" placeholder="Student Email" required>
+                <input type="number" id="stu-year" placeholder="Academic Year" required>
+                
+                <select id="stu-status">
+                    <option value="Active">Active</option>
+                    <option value="Suspended">Suspended</option>
+                    <option value="Probation">Probation</option>
+                </select>
+
+                <div style="display:flex; gap:15px; margin-top: 10px;">
+                    <button type="submit" class="save-btn" style="flex:2;">Save Changes</button>
+                    <button type="button" id="close-modal" class="cancel-btn" style="flex:1;">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="srs/app.js"></script>
 </body>
 </html>

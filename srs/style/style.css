@@ -1,4 +1,4 @@
-
+/* Student Management System - Full CRUD Styles */
 * { box-sizing: border-box; }
 
 body { 
@@ -32,7 +32,6 @@ h2 {
     padding-bottom: 10px; 
 }
 
-
 h2::after {
     content: ''; position: absolute; bottom: 0; left: 0;
     width: 60px; height: 4px;
@@ -40,67 +39,178 @@ h2::after {
     border-radius: 2px;
 }
 
+/* Data List Layout */
 .data-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .data-item { 
     background: #ffffff;
     border: 1px solid #e5e7eb;
-    padding: 25px; 
+    padding: 20px 25px; 
     border-radius: 16px; 
-    display: flex; flex-direction: column; gap: 15px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
     transition: all 0.3s ease;
 }
+
 .data-item:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15); 
+    transform: translateX(5px); 
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1); 
     border-color: #bfdbfe;
 }
 
-.data-item strong { color: #1e40af; font-size: 1.2rem; display: block; margin-bottom: 5px; }
+.data-item strong { color: #1e40af; font-size: 1.1rem; display: block; margin-bottom: 3px; }
+.data-item small { color: #6b7280; font-size: 0.9rem; }
 
 /* Status Badges */
 .status-active { 
-    align-self: flex-start; padding: 6px 15px; border-radius: 50px; 
-    font-size: 0.9rem; font-weight: 700;
+    padding: 6px 15px; border-radius: 50px; 
+    font-size: 0.85rem; font-weight: 700;
     color: #065f46; background-color: #d1fae5; border: 1px solid #a7f3d0;
 }
 .status-suspended { 
-    align-self: flex-start; padding: 6px 15px; border-radius: 50px; 
-    font-size: 0.9rem; font-weight: 700;
+    padding: 6px 15px; border-radius: 50px; 
+    font-size: 0.85rem; font-weight: 700;
     color: #92400e; background-color: #fef3c7; border: 1px solid #fde68a;
 }
 
-button { 
-    padding: 15px 35px; 
+/* Actions Buttons (Edit/Delete) */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn {
+    padding: 8px 18px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+.edit-btn:hover { background: #dbeafe; }
+
+.delete-btn {
+    padding: 8px 18px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+.delete-btn:hover { background: #fee2e2; }
+
+/* Header Search & Add */
+.actions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.primary-btn { 
+    padding: 12px 25px; 
     background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%); 
     color: white; border: none; cursor: pointer; 
-    border-radius: 12px; font-size: 1.1rem; font-weight: 600;
+    border-radius: 12px; font-size: 1rem; font-weight: 600;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
     transition: all 0.3s ease;
-    font-family: 'Roboto', sans-serif;
 }
-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6); }
-button:active { transform: scale(0.98); }
+
+#search-input {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    width: 350px;
+    font-size: 1rem;
+}
+
+/* Modal Styling Improvements */
+.modal-overlay {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 450px;
+    margin: 8% auto;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #111827;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f3f4f6;
+    padding-bottom: 10px;
+}
+
+.modal-content input, .modal-content select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+/* Disable input style (for ID during edit) */
+input:disabled {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.save-btn { 
+    background: #10b981; 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.save-btn:hover { background: #059669; }
+
+.cancel-btn { 
+    background: #9ca3af; 
+    color: white; 
+    border: none; 
+    padding: 12px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.cancel-btn:hover { background: #6b7280; }
 
 #action-result-display {
     margin-top: 25px; 
-    padding: 20px; 
-    border-radius: 12px; 
-    background-color: #f0fdf4; 
-    color: #166534; 
-    border-left: 5px solid #22c55e; 
-    font-weight: 600;
+    padding: 15px; 
+    border-radius: 10px; 
+    background-color: #ecfdf5; 
+    color: #065f46; 
+    border-left: 4px solid #10b981; 
     display: none; 
-    animation: slideDown 0.4s ease-out forwards;
 }
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-hr { border: 0; height: 1px; background: #e5e7eb; margin: 40px 0; }
